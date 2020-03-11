@@ -1,0 +1,13 @@
+body {
+  font-family: sans-serif;
+  background-color: lightblue;
+}
+
+div {
+  margin: 10px;
+}
+
+div.container {
+  border: 1px dashed black;
+  background-color: white;
+}
