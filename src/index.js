@@ -48,14 +48,17 @@ const getUser = userId => {
       return response.json();
     })
     .then(user => {
-      const userContainer = document.createElement("div");
-      userContainer.className = "userContainer";
-      const userDiv = document.createElement("div");
-      userDiv.className = "user";
-      userDiv.innerHTML = "Author: " + user.name;
+      console.log(user);
+      if (Object.keys(user).length !== 0) {
+        const userContainer = document.createElement("div");
+        userContainer.className = "userContainer";
+        const userDiv = document.createElement("div");
+        userDiv.className = "user";
+        userDiv.innerHTML = "Author: " + user.name;
 
-      document.getElementById("app").appendChild(userContainer);
-      userContainer.appendChild(userDiv);
+        document.getElementById("app").appendChild(userContainer);
+        userContainer.appendChild(userDiv);
+      }
       return user;
     });
 };
@@ -86,7 +89,7 @@ const getUserPosts = userId => {
 
 const loadData = async () => {
   try {
-    const userData = await getUser(2);
+    const userData = await getUser(1);
     getUserPosts(userData.id);
   } catch (error) {
     console.log(error);
